@@ -1,0 +1,10 @@
+<h1>Toilet Show Page</h1>
+
+<%= @toilet.id %>
+<%= @toilet.location %>
+<%= @toilet.description %>
+<%= @toilet.cost_per_minute %>
+<%= @toilet.user_id %>
+
+<%= link_to 'Edit', edit_toilet_path(@toilet) %>
+<%= link_to 'Destroy', @toilet, method: :delete, data: { confirm: 'Are you sure?' } %>
