@@ -28,9 +28,6 @@
 	width: 100%;
 }
 
-devise_container sign_up {
-	background-color: red;
-	height: 100vh;
-	width: 100%;
-	background-image: url(assets/holy-toilet.jpeg);
+#sign_up_image{
+	object-position: -111px;
 }
