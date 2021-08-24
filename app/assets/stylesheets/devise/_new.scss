@@ -1,0 +1,36 @@
+.devise_form_input {
+	margin-left: 19px;
+	width: 90%;
+}
+
+.devise_form_submit {
+	background-color: blue;
+	margin-left: 19px;
+	width: 90%;
+	color: white;
+}
+
+.shared_links {
+	display:flex;
+	justify-content: space-around;
+	margin-left: 19px;
+	margin-top: 8px;
+}
+
+.shared_link {
+	display:flex;
+	justify-content: center;
+	margin-top: 8px;
+}
+.devise_form_container {
+	position: absolute;
+	top: 25%;
+	width: 100%;
+}
+
+devise_container sign_up {
+	background-color: red;
+	height: 100vh;
+	width: 100%;
+	background-image: url(assets/holy-toilet.jpeg);
+}
