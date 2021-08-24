@@ -5,3 +5,44 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Cleaning database..."
+Toilet.destroy_all
+User.destroy_all
+puts "Creating users..."
+
+# create user with email and password
+
+user_email = ['lou.phil@gpail.com', 'philipD@yohoo.co.uk', 'IPFreely@geocities.com', 'HoldenEtienne@gpail.com', 'got2go@gpail.co.uk' ]
+
+User.create!(
+email: 'lou.phil@gpail.com',
+password: 123456
+)
+User.create!(
+email: 'philipD@yohoo.co.uk',
+password: 123456
+)
+User.create!(
+email: 'IPFreely@geocities.com',
+password: 123456
+)
+User.create!(
+email: 'HoldenEtienne@gpail.com',
+password: 123456
+)
+
+
+
+
+puts "Creating Toilets..."
+
+30.times do
+  toilet = Toilet.create!(
+    location: Faker::Address.street_address,
+    description: Faker::Books::Lovecraft.paragraph(sentence_count: 3),
+    cost_per_minute: rand(1..5),
+    access_info: Faker::Books::Lovecraft.sentence,
+    user: User.find(rand(1..4))
+   )
+    puts "Created toilet with id #{toilet.id}"
+end
