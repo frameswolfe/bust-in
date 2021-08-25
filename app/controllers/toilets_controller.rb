@@ -25,7 +25,7 @@ class ToiletsController < ApplicationController
 
   def update
     if @toilet.update(toilet_params)
-      redirect_to toilet_path(@toilet), notice: "Garden was successfully updated."
+      redirect_to toilet_path(@toilet), notice: "Toilet was successfully updated."
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class ToiletsController < ApplicationController
 
   def destroy
     @toilet.destroy
-    redirect_to toilets_path, notice: "Garden was successfully destroyed."
+    redirect_to toilets_path, notice: "Toilet was successfully destroyed."
   end
 
   private

@@ -1,4 +1,7 @@
-<h1>Add a new toilet</h1>
-
-<%= render 'form', toilet: @toilet %>
-<%= link_to 'Back', toilets_path %>
+<div class="devise_container">
+  <div class="toilet_add__header">
+    <h1>Add toilet</h1>
+  </div>
+  <%= image_tag "toilet-new"  %>
+  <%= render 'form', toilet: @toilet %>
+</div>
