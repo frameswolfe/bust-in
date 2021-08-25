@@ -2,7 +2,7 @@
 
 
 <div>
-<%= image_tag "royal-style-gold-toilet-5.jpeg", alt: "The Golden Toilet" %>
+  <%= image_tag @toilet.image_path %>
 <h1><%= @toilet.location %></h1>
 
 <h3><strong>About this toilet:</strong><h3>
@@ -12,7 +12,7 @@
 
 <div class="btn-group" role="group" aria-label="Basic example">
   <%= link_to 'Edit', edit_toilet_path(@toilet), :class => "btn btn-secondary" %>
-  <%# <% link_to 'Book Now', new_toilet_booking_path(@toilet_id) :class=> "btn btn-secondary" %>
+  <%= link_to 'Book Now', new_toilet_booking_path(@toilet), :class=> "btn btn-secondary" %>
   <%= link_to 'Back', toilets_path, :class => "btn btn-secondary" %>
   <%= link_to 'Destroy', @toilet, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary" %>
 
