@@ -1,10 +1,21 @@
-<h1>Toilet Show Page</h1>
+<div class="container">
 
-<%= @toilet.id %>
-<%= @toilet.location %>
-<%= @toilet.description %>
-<%= @toilet.cost_per_minute %>
-<%= @toilet.user_id %>
 
-<%= link_to 'Edit', edit_toilet_path(@toilet) %>
-<%= link_to 'Destroy', @toilet, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div>
+  <%= image_tag @toilet.image_path %>
+<h1><%= @toilet.location %></h1>
+
+<h3><strong>About this toilet:</strong><h3>
+<p><%= @toilet.description %></p>
+<p>Cost: <%= @toilet.cost_per_minute %>p per minute</p>
+</div>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+  <%= link_to 'Edit', edit_toilet_path(@toilet), :class => "btn btn-secondary" %>
+  <%= link_to 'Book Now', new_toilet_booking_path(@toilet), :class=> "btn btn-secondary" %>
+  <%= link_to 'Back', toilets_path, :class => "btn btn-secondary" %>
+  <%= link_to 'Destroy', @toilet, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary" %>
+
+</div>
+
+</div>
