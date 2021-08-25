@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card">
-    <ul><%= @bookings.each do |booking| </ul>
-      <%= booking %>
-    <ul> end %> <ul>
+    <ul><%= @bookings.each do |booking| %></ul>
+      <%= image_tag booking.toilet.image_path %>
+    <ul><% end %> <ul>
   </div>
 </div>

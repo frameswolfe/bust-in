@@ -1,7 +1,6 @@
 <div class="container">
   <span>Not sure where to go?</span>
   <%= link_to new_user_session_path do %>
-    <img type="image" src="assets/holy-toilet.jpeg">
+    <%= image_tag 'holy-toilet.jpg' %>
   <% end %>
-<% link_to 'Book Now', booking_path(@toilet) :class=> "btn btn-secondary" %>
 </div>
