@@ -34,7 +34,7 @@ email: 'HoldenEtienne@gpail.com',
 password: 123456
 )
 
-IMAGES = ['7f421df1218040a77307602874ea0168.jpeg', '96dfc12e38f1ee5ff19c2881884bf086.jpeg', '1178_Housekeepers_Bucket_Galvanised_2ed7c916-95d8-447d-962e-9828edcadddf_grande.jpeg', '44187704_05608a38cb.jpeg', 'royal-style-gold-toilet-5.jpeg']
+IMAGES = ['7f421df1218040a77307602874ea0168.jpg', '96dfc12e38f1ee5ff19c2881884bf086.jpg', '1178_Housekeepers_Bucket_Galvanised_2ed7c916-95d8-447d-962e-9828edcadddf_grande.jpg', '44187704_05608a38cb.jpg', 'royal-style-gold-toilet-5.jpg']
 
 
 puts "Creating Toilets..."
