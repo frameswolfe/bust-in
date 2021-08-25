@@ -1,1 +1,14 @@
-<h1>All Available Toilets</h1>
+<h2 style='text-align: center; font-size: 1.5rem'>Choose your throne</h2>
+
+<% @toilets.each do |toilet| %>
+  <%= link_to toilet_path(toilet), class: 'link' do %> <div class="card-trip">
+     <div class="card-trip-infos">
+        <%= image_tag toilet.image_path %>
+      <div>
+        <h2><%= toilet.location %></h2>
+        <p><%= toilet.description.truncate(40) %></p>
+      <h2 class="card-trip-pricing"><%= toilet.cost_per_minute %>p/min</h2>
+      </div>
+    </div>
+  </div> <% end %>
+<% end %>
