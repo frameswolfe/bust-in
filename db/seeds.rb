@@ -43,7 +43,7 @@ puts "Creating Toilets..."
   toilet = Toilet.create!(
     location: Faker::Address.street_address,
     description: Faker::Books::Lovecraft.paragraph(sentence_count: 3),
-    cost_per_minute: rand(1..5),
+    cost_per_minute: rand(1..10),
     access_info: Faker::Books::Lovecraft.sentence,
     user: User.find(rand(1..4)),
     image_path: IMAGES.sample
