@@ -10,6 +10,7 @@
   width: 100%;
   object-fit: cover;
   margin-right: 8px;
+  max-width: 182px;
 }
 
 .card-trip h2 {
@@ -28,11 +29,16 @@
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
   position: relative;
 }
 
 .link {
   color: black;
+}
+
+.add_toilet_button {
+  width: 120px;
+  background-color: #8ac926;
+  margin-left: 8px;
 }
