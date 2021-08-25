@@ -12,6 +12,9 @@ puts "Creating users..."
 
 # create user with email and password
 
+ActiveRecord::Base.connection.reset_pk_sequence!(Toilet.table_name)
+ActiveRecord::Base.connection.reset_pk_sequence!(User.table_name)
+
 user_email = ['lou.phil@gpail.com', 'philipD@yohoo.co.uk', 'IPFreely@geocities.com', 'HoldenEtienne@gpail.com', 'got2go@gpail.co.uk' ]
 
 User.create!(
