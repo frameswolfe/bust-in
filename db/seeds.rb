@@ -41,14 +41,14 @@ puts "Creating Toilets..."
 30.times do
   toilet = Toilet.new(
     location: Faker::Address.street_address,
-    description: Faker::TvShows::FamilyGuy.quote,
+    description: Faker::Books::Lovecraft.paragraph(sentence_count: 3),
     cost_per_minute: rand(1..10),
     access_info: Faker::Books::Lovecraft.sentence,
     user: User.find(rand(1..4)),
     image_path: IMAGES.sample
   )
   toilet.save!
-  lat_long = RandomLocation.near_by(51.509865, -0.118092, 500)
+  lat_long = RandomLocation.near_by(51.535638, -0.089344, 500)
   toilet.update({ latitude: lat_long[0], longitude: lat_long[1] })
   puts "Created toilet with id #{toilet.id}"
 end
