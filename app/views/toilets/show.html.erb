@@ -1,8 +1,9 @@
 <div class="container">
-
   <div class="card-trip show-page">
-   <% if @toilet.photo.attached?  %>
+    <% if @toilet.photo.attached? %>
       <%= cl_image_tag @toilet.photo.key, height: 100, width: 40 %>
+    <% elsif @toilet.image_path.present? %>
+      <%= image_tag @toilet.image_path %>
     <% else %>
       <%= image_tag "mystery_toilet.svg" %>
     <% end %>
