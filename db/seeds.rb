@@ -38,15 +38,17 @@ IMAGES = ['7f421df1218040a77307602874ea0168.jpg', '96dfc12e38f1ee5ff19c2881884bf
 
 
 puts "Creating Toilets..."
-
 30.times do
-  toilet = Toilet.create!(
+  toilet = Toilet.new(
     location: Faker::Address.street_address,
     description: Faker::Books::Lovecraft.paragraph(sentence_count: 3),
     cost_per_minute: rand(1..10),
     access_info: Faker::Books::Lovecraft.sentence,
     user: User.find(rand(1..4)),
     image_path: IMAGES.sample
-   )
-    puts "Created toilet with id #{toilet.id}"
+  )
+  toilet.save!
+  lat_long = RandomLocation.near_by(51.535638, -0.089344, 500)
+  toilet.update({ latitude: lat_long[0], longitude: lat_long[1] })
+  puts "Created toilet with id #{toilet.id}"
 end
