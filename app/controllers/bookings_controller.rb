@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    if params[:user_id]
+      @bookings = User.find(params[:user_id]).bookings
+    else
+      @bookings = Booking.all
+    end
   end
 
   def new
