@@ -1,0 +1,32 @@
+.devise_form_submit.green {
+	background-color: #8ac926;
+}
+
+.back_button {
+	width: 50%;
+	background-color: #1982c4;
+	color: white;
+  font-size: 10;
+}
+
+.multi_option {
+	display:flex;
+	justify-content: center;
+	margin-top: 8px;
+	width: 90%;
+}
+
+.booking_add_header {
+	display: flex;
+	justify-content: center;
+	background-color: #B09E83;
+	padding-top: 5px;
+}
+
+.booking_add_header h1{
+	font-size: 1.5rem;
+}
+
+.back_button_text {
+  font-size: 8px;
+}
