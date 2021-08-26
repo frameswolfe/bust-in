@@ -1,0 +1,30 @@
+<div>
+  <%= image_tag "mystery_toilet.svg" %>
+  <div class="user_info_bar">
+    <div class="user_bookings">
+      <p><%= @bookings.count %></p>
+      <p>Bookings</p>
+    </div>
+    <div class="user_toilets">
+      <p><%= @toilets.count %></p>
+      <p>Toilets</p>
+    </div>
+    <div class="user_bookings__recent">
+      <div class="user_bookings__recent_bar">
+        <h6>Recently Viewed</h6>
+        <p>View All</p>
+        <% @bookings.each do |booking| %>
+          <%= link_to toilet_path(booking.toilet), class: 'link' do %>
+            <% if booking.toilet.photo.attached? %>
+              <%= cl_image_tag booking.toilet.photo.key, height: 100, width: 40 %>
+            <% elsif booking.toilet.image_path.present? %>
+              <%= image_tag booking.toilet.image_path %>
+            <% else %>
+              <%= image_tag "mystery_toilet.svg" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
