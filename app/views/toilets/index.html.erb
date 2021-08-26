@@ -4,7 +4,7 @@
   <%= link_to toilet_path(toilet), class: 'link' do %> <div class="card-trip">
      <div class="card-trip-infos">
       <% if toilet.photo.attached?  %>
-        <%= cl_image_tag toilet.photo.key, height: 100, width: 40 %>
+        <%= cl_image_tag toilet.photo.key %>
       <% else %>
         <%= image_tag "mystery_toilet.svg", class: "mystery-toilet"%>
       <% end %>
