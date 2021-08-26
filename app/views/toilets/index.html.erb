@@ -1,20 +1,6 @@
 
 <h2 style='text-align: center; font-size: 1.5rem'>Choose your throne</h2>
 
-<% @toilets.each do |toilet| %>
-  <%= link_to toilet_path(toilet), class: 'link' do %> <div class="card-trip">
-     <div class="card-trip-infos">
-      <% if toilet.photo.attached?  %>
-        <%= cl_image_tag toilet.photo.key %>
-      <% else %>
-        <%= image_tag "mystery_toilet.svg", class: "mystery-toilet"%>
-      <% end %>
-      <div>
-        <h2><%= toilet.location %></h2>
-        <p><%= toilet.description.truncate(40) %></p>
-      <h2 class="card-trip-pricing">£<%= toilet.cost_per_minute %>.00/min</h2>
-      </div>
-
 <div id="map"
      style="width: 100%; height: 350px;"
      data-markers="<%= @markers.to_json %>"
