@@ -12,7 +12,16 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
-})
+  const markers = document.querySelectorAll('.mapboxgl-marker');
+  markers.forEach((marker) => {
+    marker.addEventListener('click', () => {
+      const id = marker.dataset.id
+      const card = document.getElementById(`toilet${id}`)
+      const cards = document.querySelector('.toilets-container')
+      cards.insertAdjacentElement('afterbegin', card)
+    });
+  });
+});
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
