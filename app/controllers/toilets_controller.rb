@@ -9,7 +9,9 @@ class ToiletsController < ApplicationController
     end
     @markers = @toilets.geocoded.map do |flat|
       {
-        lat: flat.latitude, lng: flat.longitude
+        lat: flat.latitude,
+        lng: flat.longitude,
+        id: flat.id
       }
     end
   end

@@ -10,7 +10,8 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 <div class="toilets-container">
   <% @toilets.each do |toilet| %>
-    <%= link_to toilet_path(toilet), class: 'link' do %> <div class="card-trip">
+    <%= link_to toilet_path(toilet), class: 'link', id: "toilet#{toilet.id}" do %>
+      <div class="card-trip">
         <div class="card-trip-infos">
           <% if toilet.photo.attached? %>
             <%= cl_image_tag toilet.photo.key %>
