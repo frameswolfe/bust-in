@@ -1,17 +1,13 @@
 <div class="devise_container">
   <div class="booking_add_header text-center">
-      <h1>Reserve Toilet</h1>
-    </div>
-    <div class="card-product">
-      <%= image_tag "scarface-loo.jpg" %>
+    <h1>Reserve Toilet</h1>
   </div>
-</div>
-<div class="card-product-toilet">
+  <div class="card-product">
+    <%= image_tag "scarface-loo.jpg" %>
+  </div>
+  <div class="card-product-toilet">
     <%# Place image of current booking toilet here.. %>
     <%# <%= image_tag image_path %>
     <%= render 'form', booking: @booking, toilet: @toilet %>
-</div>
-      </div>
-    </div>
   </div>
 </div>
