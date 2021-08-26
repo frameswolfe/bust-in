@@ -1,6 +1,9 @@
 
 <h2 style='text-align: center; font-size: 1.5rem'>Choose your throne</h2>
 
+
+
+
 <div id="map"
      style="width: 100%; height: 350px;"
      data-markers="<%= @markers.to_json %>"
@@ -9,7 +12,13 @@
   <% @toilets.each do |toilet| %>
     <%= link_to toilet_path(toilet), class: 'link' do %> <div class="card-trip">
         <div class="card-trip-infos">
-          <%= image_tag toilet.image_path %>
+          <% if toilet.photo.attached? %>
+            <%= cl_image_tag toilet.photo.key %>
+          <% elsif toilet.image_path.present? %>
+            <%= image_tag toilet.image_path %>
+          <% else %>
+            <%= image_tag "mystery_toilet.svg", class: "mystery-toilet"%>
+          <% end %>
           <div>
             <h2><%= toilet.location %></h2>
             <p><%= toilet.description.truncate(40) %></p>

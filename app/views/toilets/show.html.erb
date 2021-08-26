@@ -1,8 +1,9 @@
 <div class="container">
-
   <div class="card-trip show-page">
-   <% if @toilet.photo.attached?  %>
+    <% if @toilet.photo.attached? %>
       <%= cl_image_tag @toilet.photo.key, height: 100, width: 40 %>
+    <% elsif @toilet.image_path.present? %>
+      <%= image_tag @toilet.image_path %>
     <% else %>
       <%= image_tag "mystery_toilet.svg" %>
     <% end %>
@@ -16,15 +17,13 @@
     </div>
   </div>
 
-
-
-
   <div class="btn-group" role="group" aria-label="Basic example">
-    <%= link_to 'Edit', edit_toilet_path(@toilet), :class => "btn btn-secondary" %>
-    <%= link_to 'Book Now', new_toilet_booking_path(@toilet), :class=> "btn btn-secondary" %>
     <%= link_to 'Back', toilets_path, :class => "btn btn-secondary" %>
-    <%= link_to 'Destroy', @toilet, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary" %>
-
+    <%= link_to 'Book Now', new_toilet_booking_path(@toilet), :class=> "btn btn-secondary" %>
+    <% if @toilet.user_id == current_user.id %>
+      <%= link_to 'Edit', edit_toilet_path(@toilet), :class => "btn btn-secondary" %>
+      <%= link_to 'Destroy', @toilet, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary" %>
+    <% end %>
   </div>
 
 </div>
