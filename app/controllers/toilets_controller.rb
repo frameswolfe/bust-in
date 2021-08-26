@@ -28,7 +28,10 @@ class ToiletsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @toilet = Toilet.find(params[:id])
+    redirect_to toilet_path(@toilet) unless @toilet.user_id == current_user.id
+  end
 
   def update
     if @toilet.update(toilet_params)
@@ -40,6 +43,7 @@ class ToiletsController < ApplicationController
 
   def destroy
     @toilet.destroy
+    redirect_to toilet_path(@toilet) unless @toilet.user_id == current_user.id
     redirect_to toilets_path, notice: "Toilet was successfully destroyed."
   end
 
