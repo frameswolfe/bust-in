@@ -1,16 +1,24 @@
+
 <h2 style='text-align: center; font-size: 1.5rem'>Choose your throne</h2>
 
-<% @toilets.each do |toilet| %>
-  <%= link_to toilet_path(toilet), class: 'link' do %> <div class="card-trip">
-     <div class="card-trip-infos">
-        <%= image_tag toilet.image_path %>
-      <div>
-        <h2><%= toilet.location %></h2>
-        <p><%= toilet.description.truncate(40) %></p>
-      <h2 class="card-trip-pricing">£<%= toilet.cost_per_minute %>/min</h2>
-      </div>
+<div id="map"
+     style="width: 100%; height: 350px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div class="toilets-container">
+  <% @toilets.each do |toilet| %>
+    <%= link_to toilet_path(toilet), class: 'link' do %> <div class="card-trip">
+        <div class="card-trip-infos">
+          <%= image_tag toilet.image_path %>
+          <div>
+            <h2><%= toilet.location %></h2>
+            <p><%= toilet.description.truncate(40) %></p>
+            <h2 class="card-trip-pricing">£<%= toilet.cost_per_minute %>.00/min</h2>
+          </div>
+        </div>
+
     </div>
-  </div>
   <% end %>
 <% end %>
+</div>
 <%= link_to 'Add Toilet', new_toilet_path, class: 'btn add_toilet_button' %>
