@@ -1,5 +1,5 @@
 <div class="devise_form_container">
-  <%= simple_form_for(@booking) do |f| %>
+  <%= simple_form_for [@toilet, @booking] do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <div class="form-inputs">
@@ -9,12 +9,12 @@
         label: false,
         placeholder: 'Start Time',
         input_html: { class: 'devise_form_input col-sm-3'}%>
-      <%= f.input :end_time, as: :time, html5: true,
+      <%# <%= f.input :end_time, as: :date, html5: true,
         required: true,
         autofocus: true,
         label: false,
         placeholder: 'End Time',
-        input_html: { class: 'devise_form_input col-sm-3'}%>
+        input_html: { class: 'devise_form_input col-sm-3'}%> %>
     <div class="form-actions">
       <div class="row col-sm-3 text-center">
         <%= f.button :submit, class: 'devise_form_submit green' %>
