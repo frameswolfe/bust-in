@@ -2,17 +2,21 @@
   <%= image_tag "mystery_toilet.svg" %>
   <div class="user_info_bar">
     <div class="user_bookings">
-      <p><%= @bookings.count %></p>
-      <p>Bookings</p>
+        <%= link_to user_bookings_path(current_user) do %>
+          <p><%= @bookings.count %></p>
+          <p>Bookings</p>
+        <% end %>
     </div>
     <div class="user_toilets">
-      <p><%= @toilets.count %></p>
-      <p>Toilets</p>
+        <%= link_to user_toilets_path(current_user) do %>
+          <p><%= @toilets.count %></p>
+          <p>Toilets</p>
+        <% end %>
     </div>
     <div class="user_bookings__recent">
       <div class="user_bookings__recent_bar">
         <h6>Recently Viewed</h6>
-        <p>View All</p>
+        <%= link_to 'View All', user_bookings_path(current_user) %>
         <% @bookings.each do |booking| %>
           <%= link_to toilet_path(booking.toilet), class: 'link' do %>
             <% if booking.toilet.photo.attached? %>

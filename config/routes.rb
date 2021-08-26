@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show] do
     resources :bookings, only: [:index]
+    resources :toilets, only: [:index]
   end
 end

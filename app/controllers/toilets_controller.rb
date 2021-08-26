@@ -2,11 +2,14 @@ class ToiletsController < ApplicationController
   before_action :set_toilet, only: %i[show edit update destroy]
 
   def index
-    @toilets = Toilet.all
+    if params[:user_id]
+      @toilets = User.find(params[:user_id]).toilets
+    else
+      @toilets = Toilet.all
+    end
     @markers = @toilets.geocoded.map do |flat|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: flat.latitude, lng: flat.longitude
       }
     end
   end
