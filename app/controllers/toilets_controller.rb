@@ -20,7 +20,7 @@ class ToiletsController < ApplicationController
   def create
     @toilet = Toilet.new(toilet_params)
     @toilet.user = current_user
-    @toilet.image_path ||= '1178_Housekeepers_Bucket_Galvanised_2ed7c916-95d8-447d-962e-9828edcadddf_grande.jpg'
+    # @toilet.image_path ||= '1178_Housekeepers_Bucket_Galvanised_2ed7c916-95d8-447d-962e-9828edcadddf_grande.jpg'
     if @toilet.save!
       redirect_to toilet_path(@toilet)
     else
