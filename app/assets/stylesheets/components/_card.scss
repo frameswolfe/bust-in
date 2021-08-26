@@ -5,6 +5,13 @@
   margin: 8px;
 }
 
+.card-trip.show-page img {
+  height: 500px;
+  max-width: 100%;
+  object-fit: cover;
+  margin-right: 8px;
+}
+
 .card-trip img {
   height: 100px;
   width: 100%;

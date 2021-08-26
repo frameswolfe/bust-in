@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new(start_time: Time.now, end_time: (Time.now + 10))
     @toilet = Toilet.find(params[:toilet_id])
     if @booking.save
       redirect_to toilets_path
