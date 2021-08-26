@@ -1,24 +1,28 @@
 <div class="container">
 
-<div class="card-trip show-page">
-  <%= image_tag @toilet.image_path %>
-  <div class="card-trip-infos">
-    <div>
-    <h1><%= @toilet.location %></h1>
-      <h3><strong>About this toilet:</strong><h3>
-<p><%= @toilet.description %></p>
+  <div class="card-trip show-page">
+   <% if @toilet.photo.attached?  %>
+      <%= cl_image_tag @toilet.photo.key, height: 100, width: 40 %>
+    <% else %>
+      <%= image_tag "mystery_toilet.svg" %>
+    <% end %>
+    <div class="card-trip-infos">
+      <div>
+        <h1><%= @toilet.location %></h1>
+          <h3><strong>About this toilet:</strong><h3>
+          <p><%= @toilet.description %></p>
+      </div>
+        <h2 class="card-trip-pricing">Cost: £<%= @toilet.cost_per_minute %>.00/min</h2>
     </div>
-    <h2 class="card-trip-pricing">Cost: £<%= @toilet.cost_per_minute %>.00/min</h2>
   </div>
-</div>
 
-<div class="btn-group" role="group" aria-label="Basic example">
-  <%= link_to 'Back', toilets_path, :class => "btn btn-secondary" %>
-  <%= link_to 'Book Now', new_toilet_booking_path(@toilet), :class=> "btn btn-secondary" %>
-  <% if @toilet.user_id == current_user.id %>
-    <%= link_to 'Edit', edit_toilet_path(@toilet), :class => "btn btn-secondary" %>
-    <%= link_to 'Destroy', @toilet, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary" %>
-  <% end %>
-</div>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <%= link_to 'Back', toilets_path, :class => "btn btn-secondary" %>
+    <%= link_to 'Book Now', new_toilet_booking_path(@toilet), :class=> "btn btn-secondary" %>
+    <% if @toilet.user_id == current_user.id %>
+      <%= link_to 'Edit', edit_toilet_path(@toilet), :class => "btn btn-secondary" %>
+      <%= link_to 'Destroy', @toilet, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary" %>
+    <% end %>
+  </div>
 
 </div>
