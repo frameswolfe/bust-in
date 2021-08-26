@@ -9,10 +9,12 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(start_time: Time.now, end_time: (Time.now + 10))
+    @booking = Booking.new(start_time: Time.now)
     @toilet = Toilet.find(params[:toilet_id])
+    @booking.toilet = @toilet
+    @booking.user = current_user
     if @booking.save
-      redirect_to toilets_path
+      redirect_to bookings_path
     else
       render :new
     end
@@ -23,10 +25,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_time, :end_time)
   end
-
-  # def destroy
-  #   @booking = Booking.find(params[:id])
-  #   @booking.destroy
-  #   redirect_to home_path(@booking.list)
-  # end
 end
