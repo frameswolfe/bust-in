@@ -3,6 +3,12 @@ class ToiletsController < ApplicationController
 
   def index
     @toilets = Toilet.all
+    @markers = @toilets.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show; end
