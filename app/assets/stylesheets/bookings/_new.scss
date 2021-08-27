@@ -1,12 +1,9 @@
-// @import 'new'
-
-
 .devise_form_submit.green {
 	background-color: #8ac926;
 }
 
 .back_button {
-	width: 50%;
+	width: auto;
 	background-color: #1982c4;
 	color: white;
   font-size: 10;
@@ -40,7 +37,7 @@
   height: 500px;
   border:20px;
   border-radius: 10px;
-  // display: flex;
+  display: flex;
   justify-content: center;
 }
 
@@ -53,9 +50,15 @@
 
 .card {
   border-radius: 45px;
-  // background: 'scarface-loo.jpg';
 }
 
 .container h1 {
   padding:10px;
+}
+
+.booking-background {
+  background-image: url('toilet-front');
+background-position: center bottom;
+  height: 100vh;
+  object-fit: cover;
 }
