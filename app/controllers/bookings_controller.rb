@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    if params[:user_id]
+      @bookings = User.find(params[:user_id]).bookings
+    else
+      @bookings = Booking.all
+    end
   end
 
   def new
@@ -9,9 +13,10 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(start_time: Time.now)
+    @booking = Booking.new(booking_params)
     @toilet = Toilet.find(params[:toilet_id])
     @booking.toilet = @toilet
+    @booking.start_time = Time.now
     @booking.user = current_user
     if @booking.save
       redirect_to bookings_path
@@ -23,6 +28,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time)
+    params.require(:booking).permit(:start_time, :duration)
   end
 end

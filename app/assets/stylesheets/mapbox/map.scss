@@ -3,7 +3,7 @@
 }
 
 .mapboxgl-marker {
-  background-image: url('toilet_icon.svg');
+  background: url(asset_path('toilet-icon.png'));
   background-size: cover;
   width: 50px;
   height: 50px;
