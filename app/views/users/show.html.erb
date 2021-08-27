@@ -1,32 +1,59 @@
 <div>
-  <%= image_tag "mystery_toilet.svg" %>
+  <%= image_tag "mystery_toilet.svg", class: 'profile_img' %>
   <div class="user_info_bar">
     <div class="user_bookings">
-        <%= link_to user_bookings_path(current_user) do %>
+        <%= link_to user_bookings_path(request.env['PATH_INFO'].gsub('/users/', '').to_i) do %>
           <p><%= @bookings.count %></p>
           <p>Bookings</p>
         <% end %>
     </div>
     <div class="user_toilets">
-        <%= link_to user_toilets_path(current_user) do %>
+        <%= link_to user_toilets_path(request.env['PATH_INFO'].gsub('/users/', '').to_i) do %>
           <p><%= @toilets.count %></p>
           <p>Toilets</p>
         <% end %>
     </div>
-    <div class="user_bookings__recent">
-      <div class="user_bookings__recent_bar">
-        <h6>Recently Viewed</h6>
-        <%= link_to 'View All', user_bookings_path(current_user) %>
-        <% @bookings.each do |booking| %>
-          <%= link_to toilet_path(booking.toilet), class: 'link' do %>
-            <% if booking.toilet.photo.attached? %>
-              <%= cl_image_tag booking.toilet.photo.key, height: 100, width: 40 %>
-            <% elsif booking.toilet.image_path.present? %>
-              <%= image_tag booking.toilet.image_path %>
-            <% else %>
-              <%= image_tag "mystery_toilet.svg" %>
+  </div>
+  <div class="user_bookings__recent">
+    <div class="user_bookings__recent_bar">
+      <% if @user == current_user %>
+        <h6>Recently Booked</h6>
+      <% else %>
+        <h6>Toilets</h6>
+      <% end %>
+      <div class="user_option_buttons">
+        <% if @user == current_user %>
+          <%= link_to 'Add Toilet', new_toilet_path %>
+        <% end %>
+        <%= link_to 'View All', user_bookings_path(request.env['PATH_INFO'].gsub('/users/', '').to_i), class: 'view_all_button' %>
+      </div>
+    </div>
+    <div class="user_booking_imgs_container">
+      <div class="user_booking_imgs">
+        <% if @user == current_user %>
+            <% @bookings.each do |booking| %>
+              <%= link_to toilet_path(booking.toilet), class: 'link' do %>
+                <% if booking.toilet.photo.attached? %>
+                  <%= cl_image_tag booking.toilet.photo.key, height: 100, width: 40 %>
+                <% elsif booking.toilet.image_path.present? %>
+                  <%= image_tag booking.toilet.image_path %>
+                <% else %>
+                  <%= image_tag "mystery_toilet.svg" %>
+                <% end %>
+              <% end %>
             <% end %>
-          <% end %>
+        <% else %>
+            <% @toilets.each do |toilet| %>
+              <%= link_to toilet_path(toilet), class: 'link' do %>
+                <% if toilet.photo.attached? %>
+                  <%= cl_image_tag toilet.photo.key, height: 100, width: 40 %>
+                <% elsif toilet.image_path.present? %>
+                  <%= image_tag toilet.image_path %>
+                <% else %>
+                  <%= image_tag "mystery_toilet.svg" %>
+                <% end %>
+              <% end %>
+            <% end %>
         <% end %>
       </div>
     </div>
