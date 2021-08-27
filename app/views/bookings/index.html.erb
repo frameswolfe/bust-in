@@ -1,5 +1,6 @@
 
 <div class="container">
+<<<<<<< HEAD
   <div class="booking_header">
     <h1>Locations Conquered</h1>
   </div>
@@ -21,4 +22,18 @@
           <% end %>
         <% end %>
   </div>
+=======
+  <h1>Recent Bookings</h1>
+    <ul><% current_user.bookings.each do |booking| %></ul>
+      <%= link_to toilet_path(booking.toilet) do %>
+      <div class="card-trip d-flex">
+        <%= image_tag booking.toilet.image_path %>
+        <div>
+          <%= booking.toilet.location %>
+          <%= booking.duration %>
+        </div>
+      </div>
+        <% end %>
+    <% end %>
+>>>>>>> master
 </div>

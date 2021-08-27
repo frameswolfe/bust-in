@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
     if params[:user_id]
       @bookings = User.find(params[:user_id]).bookings
     else
-      @bookings = Booking.all
+      @bookings = Booking.all.order(created_at: :DESC)
     end
   end
 
