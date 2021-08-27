@@ -10,7 +10,10 @@
     <div class="card-trip-infos">
       <div>
         <h1><%= @toilet.location %></h1>
+        <div class="d-flex justify-content-between">
           <h3><strong>About this toilet:</strong><h3>
+          <%= link_to 'Book Now', new_toilet_booking_path(@toilet), :class=> "btn btn-primary" %>
+        </div>
           <p><%= @toilet.description %></p>
       </div>
         <h2 class="card-trip-pricing">Cost: £<%= @toilet.cost_per_minute %>.00/min</h2>
