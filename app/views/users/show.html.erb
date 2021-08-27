@@ -1,15 +1,19 @@
 <div>
-  <%= image_tag "mystery_toilet.svg", class: 'profile_img' %>
+  <% if @user.profile_photo.attached? %>
+    <%= cl_image_tag @user.profile_photo.key, class: 'profile_img' %>
+  <% else %>
+    <%= image_tag "mystery_toilet.svg", class: 'profile_img' %>
+  <% end %>
   <div class="user_info_bar">
     <div class="user_bookings">
         <%= link_to user_bookings_path(request.env['PATH_INFO'].gsub('/users/', '').to_i) do %>
-          <p><%= @bookings.count %></p>
+          <p class="counter"><%= @bookings.count %></p>
           <p>Bookings</p>
         <% end %>
     </div>
     <div class="user_toilets">
         <%= link_to user_toilets_path(request.env['PATH_INFO'].gsub('/users/', '').to_i) do %>
-          <p><%= @toilets.count %></p>
+          <p class="counter"><%= @toilets.count %></p>
           <p>Toilets</p>
         <% end %>
     </div>

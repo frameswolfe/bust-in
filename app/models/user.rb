@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :toilets, dependent: :destroy
   # has_many :toilets, through: :bookings
   has_many :bookings, dependent: :destroy
+  has_one_attached :profile_photo
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
