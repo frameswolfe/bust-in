@@ -1,6 +1,6 @@
 <div class="container font">
   <div class="card-trip show-page">
-    <%# <div class="card-trip-infos"> %>
+    <div class="card-trip-infos">
     <% if @toilet.photo.attached? %>
       <%= cl_image_tag @toilet.photo.key, height: 70, width: 40 %>
     <% elsif @toilet.image_path.present? %>
@@ -8,20 +8,22 @@
     <% else %>
       <%= image_tag "mystery_toilet.svg" %>
     <% end %>
+    </div>
   </div>
+</div>
+
   <div class="card book-now">
-    <h1><strong><%= @toilet.location %></strong></h1>
-    <div class="row text-center">
-        <div class="row-lg-6"><h3>About<h3></div>
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <div class="row-lg-6"><%= link_to 'Book Now', new_toilet_booking_path(@toilet), :class=> "btn btn-primary" %>
-      </div>
+    <h1><strong><%= @toilet.location%></strong></h1><h3>About</h3>
+    <div class="about text-left">
+        <div class="d-flex justify-content-center"></div>
+      <div class="btn-group" role="group" aria-label="Basic example"></div>
+
+        <div class="row-lg-6 ml-2"><%= link_to 'Book Now', new_toilet_booking_path(@toilet), :class=> "btn btn-primary" %></div>
     </div>
     <p><%= @toilet.description %></p>
-    <h2 class="">Cost: £<%= @toilet.cost_per_minute %>.00/min</h2>
+    <h2 class="">Cost: £<%= @toilet.cost_per_minute%>.00/min</h2>
   </div>
  </div>
-</div>
 <div id="back" role="group" aria-label="Basic example">
   <%= link_to 'Back', toilets_path, :class => "btn btn-secondary" %>
-</div>
+</div> %>

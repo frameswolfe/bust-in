@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="booking_header">
     <h1>Locations Conquered</h1>
@@ -7,10 +8,17 @@
   </div>
 </div>
 
+
 <div class="scrolling-wrapper">
   <div class="card card-booking-infos">
-      <ul><%=@bookings.each do |booking|%> </ul>
-      <%= image_tag booking.toilet.image_path %>
-      <ul><% end %> <ul>
-</div>
+      <% @bookings.each do |booking|%>
+          <% if booking.toilet.photo.attached? %>
+            <%= cl_image_tag booking.toilet.photo.key %>
+          <% elsif booking.toilet.image_path.present? %>
+            <%= image_tag booking.toilet.image_path %>
+          <% else %>
+            <%= image_tag "mystery_toilet.svg", class: "mystery-toilet"%>
+          <% end %>
+        <% end %>
+  </div>
 </div>
