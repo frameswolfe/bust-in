@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   resources :toilets do
     resources :bookings, only: %i[new create]
   end
+  resources :users, only: [:show] do
+    resources :bookings, only: [:index]
+    resources :toilets, only: [:index]
+  end
 end

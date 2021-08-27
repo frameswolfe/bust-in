@@ -4,24 +4,18 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <div class="form-inputs">
     <h1>Today</h1>
+    <%= f.input :duration, require: true, input_html: { min: '5', max: '45', step: '6' } %>
     <%= f.input :start_time, as: :time, html5: true,
         required: true,
         autofocus: true,
         label: false,
         placeholder: 'Start Time',
         input_html: { class: 'devise_form_input col-sm-3'}%>
-      <%# <%= f.input :end_time, as: :date, html5: true,
-        required: true,
-        autofocus: true,
-        label: false,
-        placeholder: 'End Time',
-        input_html: { class: 'devise_form_input col-sm-3'}%>
     <div class="form-actions">
       <div class="row col-sm-3 text-center">
         <%= f.button :submit, class: 'devise_form_submit green' %>
       </div>
       <div class="multi_option row btn-sm-3 col-sm-3 text-right " >
-        <%# <%= link_to 'Bookings Home', bookings_path, class: 'back_button btn' %>
         <%= link_to 'Choose another Toilet', toilets_path, class: 'back_button btn back_button_text' %>
       </div>
     </div>
