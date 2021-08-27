@@ -1,14 +1,16 @@
 <div class="container">
-  <h1>My Bookings</h1>
-    <ul><%=@bookings.each do |booking| %></ul>
-      <%= image_tag booking.toilet.image_path %>
-    <ul><% end %> <ul>
-</div>
-<div class="container">
-  <h1>Locations Conquered</h1>
-  <div>
-    <ul><%=@bookings.each do |booking| %></ul>
-      <%= image_tag booking.toilet.image_path %>
-    <ul><% end %> <ul>
+  <div class="booking_header">
+    <h1>Locations Conquered</h1>
   </div>
+  <div class='montana index-card-trip col-default-6'>
+    <%= image_tag 'scarface-loo.jpg' %>
+  </div>
+</div>
+
+<div class="scrolling-wrapper">
+  <div class="index-card-trip-infos">
+      <ul><%=@bookings.each do |booking|%> </ul>
+      <%= image_tag booking.toilet.image_path %>
+      <ul><% end %> <ul>
+</div>
 </div>

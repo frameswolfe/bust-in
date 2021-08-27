@@ -5,6 +5,19 @@
 	background-color: #8ac926;
 }
 
+
+.card-trip .card-trip-infos {
+    padding: 16px;
+    display: inline-block ;
+    align-items: flex-end;
+    position: relative;
+}
+
+.bookings-container {
+    max-height: 200vh;
+    overflow-y: scroll;
+}
+
 .back_button {
 	width: 50%;
 	background-color: #1982c4;
