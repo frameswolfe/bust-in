@@ -1,0 +1,11 @@
+<div class= "footer d-flex justify-content-center">
+  <% if user_signed_in? %>
+    <%= link_to '🚽', toilets_path, class: "footer_button" %>
+    <%= link_to '➕', new_toilet_path, class: "footer_button" %>
+    <%= link_to '⚙️', user_path(current_user), class: "footer_button" %>
+  <% else %>
+    <%= link_to '🚽', new_user_session_path, class: "footer_button" %>
+    <%= link_to '➕', new_user_session_path, class: "footer_button" %>
+    <%= link_to '⚙️', new_user_session_path, class: "footer_button" %>
+  <% end %>
+</div>

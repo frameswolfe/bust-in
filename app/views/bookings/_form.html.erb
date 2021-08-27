@@ -1,23 +1,17 @@
-<div class="devise_form_container">
-  <%= simple_form_for [@toilet, @booking] do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-    <div class="form-inputs">
-    <h1>Today</h1>
-    <%= f.input :duration, require: true, input_html: { min: '5', max: '45', step: '6' } %>
-    <%= f.input :start_time, as: :time, html5: true,
-        required: true,
-        autofocus: true,
-        label: false,
-        placeholder: 'Start Time',
-        input_html: { class: 'devise_form_input col-sm-3'}%>
-    <div class="form-actions">
-      <div class="row col-sm-3 text-center">
-        <%= f.button :submit, class: 'devise_form_submit green' %>
+<div class="container my-2">
+    <%= simple_form_for [@toilet, @booking] do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="form-card  text-center">
+        <div class="form-inputs ">
+          <p>Current time: <%= Time.now.strftime("%I:%M %p") %></p>
+          <%= f.input :duration, :collection => %w[5 10 15 20 25 30 35 40 45] %>
+          <div class="form-actions">
+            <div class="row text-center">
+            <%= f.button :submit, class: 'devise_form_submit green' %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="multi_option row btn-sm-3 col-sm-3 text-right " >
-        <%= link_to 'Choose another Toilet', toilets_path, class: 'back_button btn back_button_text' %>
-      </div>
-    </div>
   <% end %>
 </div>

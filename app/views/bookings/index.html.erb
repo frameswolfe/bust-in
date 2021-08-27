@@ -1,14 +1,14 @@
 <div class="container">
-  <h1>My Bookings</h1>
-    <ul><%=@bookings.each do |booking| %></ul>
-      <%= image_tag booking.toilet.image_path %>
-    <ul><% end %> <ul>
-</div>
-<div class="container">
-  <h1>Locations Conquered</h1>
-  <div>
-    <ul><%=@bookings.each do |booking| %></ul>
-      <%= image_tag booking.toilet.image_path %>
-    <ul><% end %> <ul>
-  </div>
+  <h1>Recent Bookings</h1>
+    <ul><% current_user.bookings.each do |booking| %></ul>
+      <%= link_to toilet_path(booking.toilet) do %>
+      <div class="card-trip d-flex">
+        <%= image_tag booking.toilet.image_path %>
+        <div>
+          <%= booking.toilet.location %>
+          <%= booking.duration %>
+        </div>
+      </div>
+        <% end %>
+    <% end %>
 </div>
