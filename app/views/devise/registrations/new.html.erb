@@ -11,21 +11,28 @@
           label: false,
           placeholder: 'Email',
           input_html: { autocomplete: "email", class: 'devise_form_input'}%>
+
         <%= f.input :password,
-                    required: true,
-                    label: false,
-                    placeholder: 'Password',
-                    input_html: { autocomplete: "new-password", class: 'devise_form_input'}%>
-                  <%= f.input :password_confirmation,
-                    required: true,
-                    label: false,
-                    placeholder: 'Confirm Password',
-                    input_html: { autocomplete: "new-password", class: 'devise_form_input'}%>
+          required: true,
+          label: false,
+          placeholder: 'Password',
+          input_html: { autocomplete: "new-password", class: 'devise_form_input'}%>
+
+        <%= f.input :password_confirmation,
+          required: true,
+          label: false,
+          placeholder: 'Confirm Password',
+          input_html: { autocomplete: "new-password", class: 'devise_form_input'}%>
+
+       <%= f.input :profile_photo, as: :file,
+        input_html: { class: 'devise_form_input'}%>
+
       </div>
 
       <div class="form-actions">
         <%= f.button :submit, "Sign up", class: 'devise_form_submit' %>
       </div>
+
     <% end %>
 
     <div class="shared_link">

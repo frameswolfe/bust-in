@@ -1,0 +1,62 @@
+.profile_img {
+	height: 33vh;
+}
+
+.user_info_bar {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.user_bookings__recent_bar {
+	display: flex;
+	justify-content: space-between;
+	margin-left: 16px;
+	margin-right: 8px;
+}
+
+.user_booking_imgs img {
+	width: 32%;
+	height: 106px;
+	border-radius: 15%;
+}
+
+.user_booking_imgs {
+	width: 90%;
+	height: 426px;
+	overflow-y: scroll;
+}
+
+.user_booking_imgs_container {
+	display: flex;
+	justify-content: center;
+	padding-left: 5px;
+}
+
+.user_bookings .counter {
+	margin-top: 8px;
+	margin-bottom: 0px;
+}
+
+a {
+	text-decoration: inherit;
+	color: inherit;
+}
+
+.counter {
+	margin-top: 8px;
+	margin-bottom: 0px;
+}
+
+.user_bookings a {
+	text-decoration: inherit;
+	color: inherit;
+}
+
+.user_option_buttons a {
+	font-size: smaller;
+	color: #9A4AE2;
+}
+
+.view_all_button {
+	padding-left: 15px;
+}
