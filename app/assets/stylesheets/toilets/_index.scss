@@ -1,1 +1,27 @@
-@import 'new'
+@import 'new';
+
+// .card-trip-infos h1{
+//   font: 16px bold ;
+//   display:grid;
+// }
+.font{
+  font-family: Roboto;
+}
+
+.card.book-now{
+  border-radius:12px;
+}
+
+.card.h1{
+  font: 20px bold;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+#back {
+  bottom: 0px;
+  position:fixed;
+}
